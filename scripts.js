@@ -51,3 +51,23 @@ const provinceMapping = names.reduce((acc, name, index) => {
 }, {});
 console.log(provinceMapping);
 
+// Advanced Exercises
+
+// 1. Log Products
+// Log the names of all products to the console
+console.log(products.map(product => product.product));
+
+// 2. Filter by Name Length
+// Filter out products with names longer than 5 characters and log the result
+const shortNamedProducts = products.filter(product => product.product.length <= 5);
+console.log(shortNamedProducts);
+
+// 3. Price Manipulation
+// Filter out products without valid prices, convert string prices to numbers, and calculate the total price
+const totalPrice = products
+  .filter(product => String(product.price).trim() !== '') // Ensure the price is not empty
+  .map(product => Number(product.price)) // Convert prices to numbers
+  .reduce((acc, price) => acc + price, 0); // Sum all prices
+console.log('Total Price of valid products:', totalPrice);
+
+/
