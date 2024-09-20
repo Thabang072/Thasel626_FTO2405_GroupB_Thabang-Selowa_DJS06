@@ -70,4 +70,30 @@ const totalPrice = products
   .reduce((acc, price) => acc + price, 0); // Sum all prices
 console.log('Total Price of valid products:', totalPrice);
 
-/
+// 4. Concatenate Product Names
+// Concatenate all product names into a single string
+const allProductNames = products.reduce((acc, product) => acc + product.product + ' ', '').trim();
+console.log('All Product Names:', allProductNames);
+
+// 5. Find Extremes in Prices
+// Identify the highest and lowest priced items and format the output
+const prices = products
+  .map(product => Number(product.price)) // Convert prices to numbers
+  .filter(price => !isNaN(price)); // Filter out NaN values
+
+const highestPrice = prices.length > 0 ? Math.max(...prices) : 0; // Find the highest price
+const lowestPrice = prices.length > 0 ? Math.min(...prices) : 0; // Find the lowest price
+
+console.log(`Highest: ${highestPrice}. Lowest: ${lowestPrice}.`);
+
+// 6. Object Transformation
+// Transform the products into an array of objects with 'name' and 'cost' keys
+const transformedProducts = products.reduce((acc, product) => {
+  const price = String(product.price).trim(); // Ensure price is a string and trim whitespace
+  acc.push({ 
+    name: product.product, 
+    cost: price ? Number(price) : 0 // Set cost to 0 if price is invalid
+  });
+  return acc;
+}, []);
+console.log('Transformed Products:', transformedProducts);
