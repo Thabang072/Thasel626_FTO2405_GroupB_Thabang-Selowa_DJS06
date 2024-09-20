@@ -27,3 +27,27 @@ console.log(uppercaseProvinces);
 // Create a new array containing the length of each name
 const nameLengths = names.map(name => name.length);
 console.log(nameLengths);
+
+// 4. Sorting
+// Sort the provinces alphabetically and log the result
+const sortedProvinces = [...provinces].sort();
+console.log(sortedProvinces);
+
+// 5. Filtering Cape
+// Filter out provinces containing "Cape" and log the count of remaining provinces
+const filteredProvinces = provinces.filter(province => !province.includes("Cape"));
+console.log(filteredProvinces.length);
+
+// 6. Finding 'S'
+// Create a boolean array indicating if each name contains the letter 'S'
+const containsS = names.map(name => name.includes('S'));
+console.log(containsS);
+
+// 7. Creating Object Mapping
+// Transform the names array into an object mapping names to their respective provinces
+const provinceMapping = names.reduce((acc, name, index) => {
+  acc[name] = provinces[index];
+  return acc;
+}, {});
+console.log(provinceMapping);
+
