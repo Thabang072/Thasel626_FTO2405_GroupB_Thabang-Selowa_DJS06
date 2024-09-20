@@ -70,6 +70,10 @@ const totalPrice = products
   .reduce((acc, price) => acc + price, 0); // Sum all prices
 console.log('Total Price of valid products:', totalPrice);
 
+// 4. Concatenate Product Names
+// Concatenate all product names into a single string
+const allProductNames = products.reduce((acc, product) => acc + product.product + ' ', '').trim();
+console.log('All Product Names:', allProductNames);
 
 // 5. Find Extremes in Prices
 // Identify the highest and lowest priced items and format the output
